@@ -29,9 +29,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        numero = random.randrange (1, 10)
+        numero_aleatorio = random.randrange(1,10)
 
-        alert(title="Número", message="Su número es.. "+str(numero))
+        alert(title="Número aleatorio", message="Su número es.. "+str(numero_aleatorio))
         
 
 if __name__ == "__main__":
