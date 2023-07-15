@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Juliana Gimena 
+apellido: Grajeda
 ---
 Ejercicio: entrada_salida_01
 ---
@@ -28,7 +28,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        #Desde esta línea (para abajo) empezamos a codear
+        alert(title="Alerta", message="Este programa no anda, funciona")
         
 
 if __name__ == "__main__":

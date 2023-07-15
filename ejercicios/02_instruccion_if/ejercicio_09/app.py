@@ -29,7 +29,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = random.randrange (1, 10)
+
+        alert(title="Número", message="Su número es.. "+str(numero))
         
 
 if __name__ == "__main__":

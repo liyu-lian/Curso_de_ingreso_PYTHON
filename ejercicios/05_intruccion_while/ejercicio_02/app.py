@@ -24,7 +24,14 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
+        contador = 10
+
+        #
+
+        while contador != 0 :
+            alert(title = "Escala Descendente", message="El número es: "+str(contador))
+            contador = contador - 1
+        alert(title="Fin del While", message="Salió del While")
     
     
 if __name__ == "__main__":
