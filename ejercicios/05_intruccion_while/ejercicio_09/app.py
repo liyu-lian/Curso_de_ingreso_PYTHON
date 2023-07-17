@@ -32,7 +32,38 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        respuesta = "Si"
+        numero_ingresado = 0
+        numero_ingresado_max = 0
+        numero_ingresado_min = 0
+
+        bandera_primer_num= True
+
+        while respuesta != None:
+            numero_ingresado = prompt(title="Números", prompt="Ingrese un número.. ")
+
+            if numero_ingresado != None:
+
+                numero_ingresado = int(numero_ingresado)
+
+                if bandera_primer_num == True:
+                    numero_ingresado_max = numero_ingresado
+                    numero_ingresado_min = numero_ingresado
+
+                    bandera_primer_num = False
+                else:
+                    if numero_ingresado > numero_ingresado_max:
+                        numero_ingresado_max = numero_ingresado
+                    else:
+                        if numero_ingresado < numero_ingresado_min:
+                            numero_ingresado_min = numero_ingresado
+
+            respuesta = prompt(title="Respuesta", prompt="Desea continuar? Presione 'Cancel' para salir")
+
+        self.txt_maximo.delete(0, 1000)
+        self.txt_maximo.insert(0, numero_ingresado_max)
+        self.txt_minimo.delete(0, 1000)
+        self.txt_minimo.insert(0, numero_ingresado_min)
 
     
 if __name__ == "__main__":
