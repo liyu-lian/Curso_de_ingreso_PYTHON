@@ -31,7 +31,25 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        acumulador_numeros = 0
+        contador = 0
+
+        while contador < 5:
+
+            #pregunta: ¿Se pude validar en caso de que traten de insertar una letra o un espacio?
+
+            numeros_ingresados = prompt(title="Números para sus cuentas", prompt="Ingrese un número ")
+            numeros_ingresados = int(numeros_ingresados)
+            acumulador_numeros = acumulador_numeros + numeros_ingresados
+
+            contador = contador + 1
+        
+        promedio_numeros = acumulador_numeros / 5
+
+        self.txt_suma_acumulada.delete(0,1000)
+        self.txt_suma_acumulada.insert(0, acumulador_numeros)
+        self.txt_promedio.delete(0, 100)
+        self.txt_promedio.insert(0, promedio_numeros)
 
     
 if __name__ == "__main__":

@@ -26,13 +26,10 @@ class App(customtkinter.CTk):
     def btn_mostrar_iteracion_on_click(self):
         contador = 10
 
-        #
-
-        while contador != 0 :
-            alert(title = "Escala Descendente", message="El número es: "+str(contador))
+        while contador > 0:
+            alert(title = "Números", message="Su número es "+str(contador))
             contador = contador - 1
-        alert(title="Fin del While", message="Salió del While")
-    
+        alert(title="Fin", message="Fin de la iteración")
     
 if __name__ == "__main__":
     app = App()

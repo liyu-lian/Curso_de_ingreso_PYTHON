@@ -24,11 +24,11 @@ class App(customtkinter.CTk):
         
     
     def btn_pedir_clave_on_click(self):
-        clave_ingresada = prompt(title = "Clave", prompt="Ingrese su clave.. ")
+        clave_ingresada = prompt(title="UTNflix", prompt="Ingrese su contraseña para iniciar sesión")
 
         while clave_ingresada != "utn750":
-            clave_ingresada = prompt(title = "Clave", prompt="Clave errónea. Ingrese sus clave.. ")
-        alert(title="Usuario", message="Bienvenido a UTNFLIX :D") 
+            clave_ingresada = prompt(title="UTNflix", prompt="ERROR. Ingrese la contraseña correcta")
+        alert(title="UTNflix", message="Bienvenido a UTNflix. Disfrute de la plataforma :D")
     
     
 if __name__ == "__main__":

@@ -71,9 +71,21 @@ class App(customtkinter.CTk):
                     case "Mar del plata":
                         descuento = 0.20
             case "Verano":
-                pass
+                match destino_ingresado:
+                    case "Bariloche":
+                        descuento = 0.20
+                    case "Caratas" | "Cordoba":
+                        aumento = 0.10
+                    case "Mar del plata":
+                        aumento = 0.20
             case "Primavera" | "Otoño":
-                pass
+                match destino_ingresado:
+                    case "Bariloche":
+                        aumento = 0.10
+                    case "Caratas":
+                        aumento = 0.10
+                    case "Mar del plata":
+                        aumento = 0.10
 
         aumento = precio_viaje*aumento
         descuento = precio_viaje*descuento
