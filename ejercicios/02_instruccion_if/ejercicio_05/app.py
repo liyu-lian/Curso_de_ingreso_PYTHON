@@ -39,11 +39,10 @@ class App(customtkinter.CTk):
 
         mensaje = None
 
-        if(edad_ingresada <13 or edad_ingresada >17):
+        if edad_ingresada > 17 or edad_ingresada < 13:
             mensaje = "NO ES ADOLESCENTE"
-            alert(title="Validación", message=mensaje)
+            print(mensaje)
 
-        
     
 if __name__ == "__main__":
     app = App()

@@ -33,12 +33,51 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        contador = 0
+        #HECHO EN CLASE
+
+        Numero_ingresado = " "
+
+        acum_suma_negativos = 0
+        acum_suma_positivos = 0
+
         contador_positivos = 0
         contador_negativos = 0
-        respuesta = "Si"
+        contador_ceros = 0
 
-        while respuesta != None:
+        while Numero_ingresado != None:  
+            Numero_ingresado = prompt(title="Número", prompt="Ingrese números o presione 'Cancel' para salir")
+
+            if Numero_ingresado != None:
+                Numero_ingresado = int(Numero_ingresado)
+                if Numero_ingresado < 0:
+                    contador_negativos = contador_negativos + 1
+                    acum_suma_negativos = acum_suma_negativos + Numero_ingresado
+                elif Numero_ingresado > 0:
+                    contador_positivos = contador_positivos + 1
+                    acum_suma_positivos = acum_suma_positivos +  Numero_ingresado
+                else:
+                    contador_ceros = contador_ceros + 1
+
+        diferencia_posi_y_nega = contador_positivos - contador_negativos
+            
+
+        mensaje = " La suma de los números negativos es.. "+str(acum_suma_negativos)
+        mensaje += "\n La suma de los números positivos es.. "+str(acum_suma_positivos)
+        mensaje += "\n La cantidad de números positivos es "+str(contador_positivos)
+        mensaje += "\n La cantidad de números negativos es "+str(contador_negativos)
+        mensaje += "\n La cantidad de ceros es "+str(contador_ceros)
+        mensaje += "\n La diferencia entre números positivos y números negativos es "+str(diferencia_posi_y_nega)
+
+
+        alert(title="Números", message=mensaje)
+
+    
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
+
+"""         while respuesta != None:
+            
             numero_ingresado = prompt(title="Números", prompt="Ingrese un número.. ")
             numero_ingresado = int(numero_ingresado)
             
@@ -51,9 +90,4 @@ class App(customtkinter.CTk):
             else:
                 contador = contador + 1
             
-            respuesta = prompt(title="Número", prompt="Desea seguir incertando números? Presione 'Cancel' para salir")
-
-    
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+            respuesta = prompt(title="Número", prompt="Desea seguir incertando números? Presione 'Cancel' para salir") """

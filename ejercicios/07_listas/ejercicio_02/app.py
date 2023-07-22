@@ -27,10 +27,22 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        bandera = 0
+        numero_men = 0
+
+        for numeros in self.lista_datos:
+
+            if bandera  == 0 or numeros < numero_men:
+                numero_men = numeros
+
+        mensaje = "El numero más grande es "+str(numero_men)
+
+        print(mensaje)
         
     def btn_cargar_on_click(self):
-        pass
+        for rango in range(3):
+            numeros = prompt(title="Números", prompt="Ingrese un número.. ")
+            self.lista_datos.append(numeros)
     
 if __name__ == "__main__":
     app = App()

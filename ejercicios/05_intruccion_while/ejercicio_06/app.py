@@ -31,27 +31,31 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
+
         acumulador_numeros = 0
-        contador = 0
 
-        while contador < 5:
+        for numeros in range (5):
 
-            #pregunta: ¿Se pude validar en caso de que traten de insertar una letra o un espacio?
+            numero_ingresado = prompt(title="Inserción de datos", prompt="Ingrese un número.. ")
+            
+            while numero_ingresado.isalpha():
+                numero_ingresado = prompt(title="Inserción de datos", prompt="ERROR. Ingrese un número.. ")
 
-            numeros_ingresados = prompt(title="Números para sus cuentas", prompt="Ingrese un número ")
-            numeros_ingresados = int(numeros_ingresados)
-            acumulador_numeros = acumulador_numeros + numeros_ingresados
+            if numero_ingresado.isdigit():
+                numero_ingresado = int(numero_ingresado)
 
-            contador = contador + 1
-        
-        promedio_numeros = acumulador_numeros / 5
+            acumulador_numeros = acumulador_numeros + numero_ingresado
 
-        self.txt_suma_acumulada.delete(0,1000)
+        promedio = acumulador_numeros / numeros
+
+        self.txt_promedio.delete(0, 1000)
+        self.txt_promedio.insert(0, promedio)
+        self.txt_suma_acumulada.delete(0, 1000)
         self.txt_suma_acumulada.insert(0, acumulador_numeros)
-        self.txt_promedio.delete(0, 100)
-        self.txt_promedio.insert(0, promedio_numeros)
+	
+        
 
-    
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()

@@ -38,13 +38,10 @@ class App(customtkinter.CTk):
         edad_ingresada = self.txt_edad.get()
         edad_ingresada = int(edad_ingresada)
 
-        mensaje = None
-
-        if(edad_ingresada >17):
-            mensaje = "Mayor"
+        if edad_ingresada > 17:
+            print("Mayor")
         else:
-            mensaje = "Menor"
-        alert(title="Revisión de Edad", message=mensaje)
+            print("Menor")
 if __name__ == "__main__":
     app = App()
     app.mainloop()

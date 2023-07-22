@@ -23,9 +23,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
-        
+
+        numeros = self.lista_datos 
+
+        for num in numeros:
+            print(num)
     
 if __name__ == "__main__":
     app = App()

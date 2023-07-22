@@ -40,19 +40,17 @@ class App(customtkinter.CTk):
 
         mensaje = None
 
-        if(edad_ingresada>12 and edad_ingresada<18):
-            mensaje = "adolescente"
-        elif(edad_ingresada > 10 and edad_ingresada < 13):
-            mensaje = "Pre-adolescente"
-        elif(edad_ingresada<11):
-            mensaje = "Niño/a"
+        if edad_ingresada > 12 and edad_ingresada <18:
+            mensaje = "Usted es adolescente"
+        elif edad_ingresada > 9 and edad_ingresada <13:
+            mensaje = "Usted es Pre-adolescente"
+        elif edad_ingresada < 10 :
+            mensaje = "Usted es Menor de edad"
         else:
-            mensaje = "Mayor"
-        alert(title="Validación", message=mensaje)
+            mensaje = "Usted es Mayor"
+        
+        print(mensaje)
 
-        
-        
-    
 if __name__ == "__main__":
     app = App()
     app.mainloop()

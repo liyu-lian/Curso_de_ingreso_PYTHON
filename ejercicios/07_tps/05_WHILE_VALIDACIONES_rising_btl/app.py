@@ -50,10 +50,36 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+
+        apellido_ingresado = prompt(title="Inserción de Datos", prompt="Ingrese su apellido..")
+
+        while apellido_ingresado == None or apellido_ingresado.isdigit():
+            apellido_ingresado = prompt(title="Inserción de Datos", prompt="Error. Solo letras. Ingrese su apellido..")
+
+        edad_ingresada = prompt(title="Inserción de Datos", prompt="Ingrese su edad.. ")
+        edad_ingresada = int(edad_ingresada)
+
+        while edad_ingresada < 18 or edad_ingresada > 90:
+            edad_ingresada =prompt(title="Inserción de datos", prompt="ERROR. Ingrese una edad válida(entre 18 y 90)..")
+            edad_ingresada = int(edad_ingresada)
+
+        estado_civil = prompt(title="Inserción de datos", prompt="Ingrese su estado civil.. ")
+
+        
+        
+        self.txt_apellido.delete(0,1000)
+        self.txt_apellido.insert(0, apellido_ingresado)
+        self.txt_edad.delete(0,1000)
+        self.txt_edad.insert(0, edad_ingresada)
+
 
 
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
+"""     Apellido
+    Edad, entre 18 y 90 años inclusive.
+    Estado civil, ["Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"]
+    Número de legajo, numérico de 4 cifras, sin ceros a la izquierda. """

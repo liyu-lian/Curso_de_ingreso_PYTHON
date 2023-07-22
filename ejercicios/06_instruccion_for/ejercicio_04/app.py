@@ -21,7 +21,13 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        for i in range(999999 ):
+
+            numero_ingresado = prompt(title="Cantidad Iteraciones", prompt="Ingrese un número o ingrese 9 para salir.. ")
+
+            if numero_ingresado == "9":
+                break
         
     
 if __name__ == "__main__":

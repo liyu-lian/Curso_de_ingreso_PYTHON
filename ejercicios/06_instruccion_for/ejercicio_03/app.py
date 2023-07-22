@@ -18,7 +18,7 @@ class App(customtkinter.CTk):
         # configure window
         self.title("UTN Fra")
 
-        self.label1 = customtkinter.CTkLabel(master=self, text="Edad")
+        self.label1 = customtkinter.CTkLabel(master=self, text="Mensaje")
         self.label1.grid(row=0, column=0, padx=20, pady=10)
         
         self.txt_repetir = customtkinter.CTkEntry(master=self)
@@ -29,7 +29,12 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        cantidad_mensaje = self.txt_repetir.get()
+        cantidad_mensaje = int(cantidad_mensaje)
+
+        for mensaje in range(cantidad_mensaje):
+            alert(title="Mensaje", message="Hola UTN FRA")
 
         
         

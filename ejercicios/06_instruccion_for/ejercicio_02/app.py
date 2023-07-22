@@ -23,8 +23,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass    
-       
+        for numeros in range(5):
+            alert(title="Números",message=f"{5-numeros}")    
+
             
 
 if __name__ == "__main__":
