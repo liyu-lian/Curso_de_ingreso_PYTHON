@@ -21,7 +21,35 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        contador_ceros = 0
+
+        mensaje = None
+
+        numero_ingresado = prompt(title="Inserción de datos", prompt="Ingrese un número.. ")
+            
+        while numero_ingresado.isalpha():
+            numero_ingresado = prompt(title="Inserción de datos", prompt="ERROR. Ingrese un número.. ")
+
+        if numero_ingresado != None:
+            numero_ingresado = int(numero_ingresado)
+
+        if numero_ingresado > 0:
+            for numero in range(2, numero_ingresado):
+                resto = numero_ingresado % numero
+
+                if resto == 0:
+                    contador_ceros = contador_ceros + 1
+
+            if contador_ceros == 0:
+                mensaje = "El número es primo"
+            else:
+                mensaje = "El numero ingresado no es primo"
+        else:
+            mensaje = "El numero ingresado no es primo"
+        
+
+        print(mensaje)
     
 if __name__ == "__main__":
     app = App()

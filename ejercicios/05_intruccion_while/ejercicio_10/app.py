@@ -33,9 +33,55 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        #HECHO EN CLASE
+        respuesta = True
 
-        Numero_ingresado = " "
+        acumulador_posi = 0
+        acumulador_negativos = 0
+
+        contador_positivos = 0
+        contador_negativos = 0
+        contador_0 = 0
+
+        Mensaje = None
+        
+        while respuesta != False:
+            numero_ingresado = prompt(title="Inserción de datos", prompt="Ingrese un número.. ")
+            
+            while numero_ingresado.isalpha():
+                numero_ingresado = prompt(title="Inserción de datos", prompt="ERROR. Ingrese un número.. ")
+
+            if numero_ingresado != None:
+                numero_ingresado = int(numero_ingresado)
+
+                if numero_ingresado > 0:
+                    acumulador_posi = acumulador_posi + numero_ingresado
+
+                    contador_positivos = contador_positivos + 1
+                elif numero_ingresado <0:
+                    acumulador_negativos = acumulador_negativos + numero_ingresado
+
+                    contador_negativos = contador_negativos + 1
+                else:
+                    contador_0 = contador_0 + 1
+
+            respuesta = question(title="Ingreso de Números", message="Desea continuar?")
+
+        diferencia = contador_negativos - contador_positivos
+
+        Mensaje = "La suma acumulada de los negativos es "+ str(acumulador_negativos)
+        Mensaje +="\n La suma acumulada de los positivos es "+str(acumulador_posi)
+        Mensaje +="\n Cantidad de números positivos ingresados: "+str(contador_positivos)
+        Mensaje +="\n Cantidad de números negativos ingresados: "+str(contador_negativos)
+        Mensaje +="\n Cantidad de ceros: "+str(contador_0)
+        Mensaje +="\n Diferencia entre la cantidad de los números positivos ingresados y los negativos es "+str(diferencia)
+	
+        print(Mensaje)
+
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
+
+"""         Numero_ingresado = " "
 
         acum_suma_negativos = 0
         acum_suma_positivos = 0
@@ -66,28 +112,5 @@ class App(customtkinter.CTk):
         mensaje += "\n La cantidad de números positivos es "+str(contador_positivos)
         mensaje += "\n La cantidad de números negativos es "+str(contador_negativos)
         mensaje += "\n La cantidad de ceros es "+str(contador_ceros)
-        mensaje += "\n La diferencia entre números positivos y números negativos es "+str(diferencia_posi_y_nega)
-
-
-        alert(title="Números", message=mensaje)
-
-    
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
-
-"""         while respuesta != None:
-            
-            numero_ingresado = prompt(title="Números", prompt="Ingrese un número.. ")
-            numero_ingresado = int(numero_ingresado)
-            
-            if numero_ingresado < 0:
-                suma_negativos = suma_negativos + numero_ingresado
-                contador_negativos = contador_negativos + 1
-            elif numero_ingresado > 0:
-                suma_positivos = suma_positivos + numero_ingresado
-                contador_positivos = contador_positivos + 1
-            else:
-                contador = contador + 1
-            
-            respuesta = prompt(title="Número", prompt="Desea seguir incertando números? Presione 'Cancel' para salir") """
+        mensaje += "\n La diferencia entre números positivos y números negativos es "+str(diferencia_posi_y_nega) 
+        alert(title="Números", message=mensaje)"""

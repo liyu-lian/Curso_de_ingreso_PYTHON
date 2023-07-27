@@ -22,8 +22,16 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero_ingresado = prompt(title="Inserción de datos", prompt="Ingrese un número.. ")
+            
+        while numero_ingresado.isalpha():
+            numero_ingresado = prompt(title="Inserción de datos", prompt="ERROR. Ingrese un número.. ")
+
+        if numero_ingresado != None:
+            numero_ingresado = int(numero_ingresado)
         
+        for mensaje in range(1, numero_ingresado+1):
+            print(mensaje)
     
 if __name__ == "__main__":
     app = App()

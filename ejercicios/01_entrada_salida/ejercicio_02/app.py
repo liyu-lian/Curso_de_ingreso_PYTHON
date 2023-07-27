@@ -28,9 +28,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        nombre = prompt(title="Nombre", prompt="Ingrese su nombre.. ")
+        nombre = input("Ingrese su nombre.. ")
+
         mensaje = "Hola {0} ¿Cómo estás?".format(nombre)
-        alert(title="mensaje", message=mensaje)
+
+        print(mensaje)
                 
         
     

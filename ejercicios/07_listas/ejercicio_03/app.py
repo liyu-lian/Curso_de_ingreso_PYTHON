@@ -24,17 +24,18 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
+        mensaje = None
 
         maximo = self.lista_datos[0]
 
         for numeros in self.lista_datos:
-
             if numeros > maximo:
                 maximo = numeros
 
-        mensaje = "El numero más grande es "+str(maximo)
+        mensaje = "El número {0} es el mayor de toda la lista".format(maximo)
 
         print(mensaje)
+        
 
         
     

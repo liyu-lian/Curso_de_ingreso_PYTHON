@@ -22,13 +22,17 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
 
-        for i in range(999999 ):
+        for mensaje in range(99999):
+            numero_ingresado = prompt(title="Números", prompt="Ingrese un número.. [Inserte 9 para salir]")
+            while numero_ingresado.isalpha():
+                numero_ingresado = prompt(title="Inserción de datos", prompt="ERROR. Ingrese un número.. ")
 
-            numero_ingresado = prompt(title="Cantidad Iteraciones", prompt="Ingrese un número o ingrese 9 para salir.. ")
+            if numero_ingresado != None:
+                numero_ingresado = int(numero_ingresado)
+                if numero_ingresado == 9:
+                    break
 
-            if numero_ingresado == "9":
-                break
-        
+            
     
 if __name__ == "__main__":
     app = App()

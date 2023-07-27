@@ -23,8 +23,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        for numeros in range(5):
-            alert(title="Números",message=f"{5-numeros}")    
+        
+        for mensaje in range(1, 6):
+            print("Holi! Cómo estás? :D")
 
             
 

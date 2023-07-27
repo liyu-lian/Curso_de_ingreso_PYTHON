@@ -27,23 +27,23 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        bandera = 0
-        numero_men = 0
 
-        for numeros in self.lista_datos:
+        for mensaje in self.lista_datos:
+            print(mensaje)
 
-            if bandera  == 0 or numeros < numero_men:
-                numero_men = numeros
-
-        mensaje = "El numero más grande es "+str(numero_men)
-
-        print(mensaje)
-        
     def btn_cargar_on_click(self):
-        for rango in range(3):
-            numeros = prompt(title="Números", prompt="Ingrese un número.. ")
-            self.lista_datos.append(numeros)
-    
+        
+        for numeros in range(3):
+            numero_ingresado = prompt(title="Inserción de datos", prompt="Ingrese un número.. ")
+            
+            while numero_ingresado.isalpha():
+                numero_ingresado = prompt(title="Inserción de datos", prompt="ERROR. Ingrese un número.. ")
+
+            if numero_ingresado != None:
+                    numero_ingresado = int(numero_ingresado)
+
+            self.lista_datos.append(numero_ingresado)
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()

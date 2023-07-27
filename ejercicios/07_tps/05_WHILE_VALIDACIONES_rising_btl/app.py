@@ -50,36 +50,55 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-
-        apellido_ingresado = prompt(title="Inserción de Datos", prompt="Ingrese su apellido..")
-
-        while apellido_ingresado == None or apellido_ingresado.isdigit():
-            apellido_ingresado = prompt(title="Inserción de Datos", prompt="Error. Solo letras. Ingrese su apellido..")
-
-        edad_ingresada = prompt(title="Inserción de Datos", prompt="Ingrese su edad.. ")
-        edad_ingresada = int(edad_ingresada)
-
-        while edad_ingresada < 18 or edad_ingresada > 90:
-            edad_ingresada =prompt(title="Inserción de datos", prompt="ERROR. Ingrese una edad válida(entre 18 y 90)..")
-            edad_ingresada = int(edad_ingresada)
-
-        estado_civil = prompt(title="Inserción de datos", prompt="Ingrese su estado civil.. ")
-
+        respuesta = True
         
-        
-        self.txt_apellido.delete(0,1000)
-        self.txt_apellido.insert(0, apellido_ingresado)
-        self.txt_edad.delete(0,1000)
+        while respuesta != False:
+            apellido = prompt(title="Inserción de datos", prompt="Ingrese su apellido")
+
+            while apellido.isdigit():
+                apellido = prompt(title="Inserción de datos", prompt="ERROR. Ingrese un apellido válido.. ")
+
+            edad_ingresada = prompt(title="Inserción de datos", prompt="Ingrese su edad")
+
+            while edad_ingresada.isalpha():
+                edad_ingresada = prompt(title="Inserción de datos", prompt="ERROR. Ingrese una edad válida.. ")
+
+            if edad_ingresada != None:
+                edad_ingresada = int(edad_ingresada)
+            
+            while edad_ingresada < 18 or edad_ingresada > 90:
+                edad_ingresada = prompt(title="Inserción de datos", prompt="ERROR. Debe ser mayor de 18 años pero no mayor de 90 años.. ")
+                edad_ingresada = int(edad_ingresada)
+
+            legajo = prompt(title="Inserción de datos", prompt="Ingrese su número de legajo (4 cifras).. ")
+
+            while legajo == None or legajo.isdigit() == False or int(legajo) < 1001 or int(legajo) > 9999: #while not legajo.isdigit()
+                legajo = prompt(title="Inserción de datos", prompt="ERROR. Ingrese su número de legajo(4 cifras).. ")
+
+            estado_civil = prompt(title="Inserción de Datos", prompt="Elija entre 'Soltero/a', 'Casado/a', 'Divorciado/a' o 'Viudo/a' ")
+
+            while estado_civil != 'Casado/a' and estado_civil != 'Soltero/a' and estado_civil != 'Divorciado/a' and estado_civil != 'Viudo/a':
+                estado_civil = prompt(title="Inserción de Datos", prompt="ERROR. Elija entre 'Soltero/a', 'Casado/a', 'Divorciado/a' o 'Viudo/a' ")
+
+            respuesta = question(title="Inserción de datos", message="Desea continuar?")
+
+        self.txt_apellido.delete(0, 1000)
+        self.txt_apellido.insert(0, apellido)
+        self.txt_edad.delete(0, 1000)
         self.txt_edad.insert(0, edad_ingresada)
 
+        self.txt_legajo.delete(0, 1000)
+        self.txt_legajo.insert(0, legajo)
 
+        self.combobox_tipo.set(estado_civil)
 
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
 
-"""     Apellido
+"""    
+    Apellido
     Edad, entre 18 y 90 años inclusive.
     Estado civil, ["Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"]
     Número de legajo, numérico de 4 cifras, sin ceros a la izquierda. """
